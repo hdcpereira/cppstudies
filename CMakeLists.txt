@@ -13,7 +13,6 @@ set(PROJECT_HEADERS
         le_arquivo.hpp
         letra_existe.hpp
         nao_acertou.hpp
-        nao_enforcou.hpp
         salva_arquivo.hpp
         sorteia_palavra.hpp
         )
@@ -21,14 +20,12 @@ set(PROJECT_HEADERS
 set(PROJECT_SOURCES
         adiciona_palavra.cpp
         chuta.cpp
-        imprime_cabecalho.cpp
         imprime_erros.cpp
         imprime_palavra.cpp
         le_arquivo.cpp
         letra_existe.cpp
         sorteia_palavra.cpp
         nao_acertou.cpp
-        nao_enforcou.cpp
         salva_arquivo.cpp
         forca.cpp
         )

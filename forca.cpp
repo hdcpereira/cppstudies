@@ -2,13 +2,9 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <fstream>
-#include <ctime>
-#include <cstdlib>
 
 #include "nao_acertou.hpp"
 #include "letra_existe.hpp"
-#include "nao_enforcou.hpp"
 #include "imprime_cabecalho.hpp"
 #include "imprime_erros.hpp"
 #include "chuta.hpp"
@@ -21,28 +17,24 @@
 using namespace std;
 
 string palavra_secreta;
-
 map<char,bool> chutou;
 vector<char> chutes_errados;
-
 
 int main(){
 
      imprime_cabecalho();
 
-     le_arquivo();
+     palavra_secreta = sorteia_palavra();
 
-     sorteia_palavra();
+    while (nao_acertou(palavra_secreta, chutou) && chutes_errados.size() < 5) {
 
-    while (nao_acertou() && nao_enforcou()) {
+        imprime_erros(chutes_errados);
 
-        imprime_erros();
+        imprime_palavra(palavra_secreta, chutou);
 
-        imprime_palavra();
-
-        chuta();
+        chuta(chutes_errados, chutou, palavra_secreta);
  
-    if(nao_acertou()){
+    if(nao_acertou(palavra_secreta, chutou)){
         cout << "Você perdeu. Tente novamente." << endl;
 
     }
